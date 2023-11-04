@@ -52,7 +52,10 @@ def dictify(colors):
 
 def print_res(result):
     for color, rgb in result:
-        print(f"{color} = {rgb}")
+        try:
+            print(f"{ANSI_TO_MOBA[color]}={rgb}")
+        except:
+            pass
 
 def save_res(output_path, result):
     with open(output_path, "w") as f:
