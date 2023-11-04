@@ -70,14 +70,14 @@ def save_res(output_path, result):
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Parse XML and generate xterm style INI file.")
-    parser.add_argument("--xml_path", default="colors.xml", help="Path to the input XML file, this should be output of exporting termcolor colorscheme")
+    parser.add_argument("--iterm_theme_path", default="colors.itermcolors", help="Path to the input XML file, this should be output of exporting termcolor colorscheme")
     parser.add_argument("--output_path", default="xterm_style.ini", help="Path to the output INI file")
     return parser.parse_args()
 
 
-def main(xml_path, output_path):
+def main(iterm_theme_path, output_path):
 
-    with open(xml_path, "r") as f:
+    with open(iterm_theme_path, "r") as f:
         content = f.read()
 
     parsed = xmltodict.parse(content)
@@ -91,4 +91,4 @@ def main(xml_path, output_path):
 
 if __name__ == "__main__":
     args = parse_arguments()
-    main(args.xml_path, args.output_path)
+    main(args.iterm_theme_path, args.output_path)
